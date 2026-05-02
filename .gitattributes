@@ -16,7 +16,7 @@
 *.ico       binary
 *.svg       binary
 
-# JS files in dist/ - treat as binary to preserve SRI hashes
-dist/*.js   binary
-dist/*.css  binary
-dist/*.wasm binary
+# JS files and CSS  - treat as binary to preserve SRI hashes
+*.js   binary
+*.css  binary
+*.wasm binary
