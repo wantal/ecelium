@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eCelium GIS</title>
+    
+<script type="module">
+import init, * as bindings from '/ecelium-gis-website-6975a95862866aa0.js';
+const wasm = await init({ module_or_path: '/ecelium-gis-website-6975a95862866aa0_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+    <link rel="stylesheet" href="/main-df99d1b72cfc7f72.css" integrity="sha384-SyW4irkROhCXaa+gPBgvD+Bsg3QoyovAuFoBjKXaxKyT2ljk5QaRjZyiR+dfh7bU"/>
+  <link rel="modulepreload" href="/ecelium-gis-website-6975a95862866aa0.js" crossorigin="anonymous" integrity="sha384-fPW+v2TIGPf/HJryDl5gt0Bh65UM8HR/UpE8RnfDZBKnDxZ+8h8JoKP3Kn6J05Dj"><link rel="preload" href="/celium-gis-website-6975a95862866aa0_bg.wasm" crossorigin="anonymous" integrity="sha384-XG/Kn9yJrx5pz+2QM+yXiJkUxYL2277G2i0fjMQpu9H+TjfbiNIMIYS0SIARq/1Y" as="fetch" type="application/wasm"></head>
+  <body>
+    <noscript>
+      This site requires WebAssembly. Please update your browser or enable WebAssembly support.
+    </noscript>
+
+    <div id="app"></div>
+
+    <script>
+      if (typeof WebAssembly === "undefined") {
+        var fallback = document.createElement("div");
+        fallback.id = "wasm-fallback";
+        fallback.style.cssText =
+          "display:flex;align-items:center;justify-content:center;height:100vh;" +
+          "font-family:sans-serif;font-size:1.1rem;color:#1a2a4a;text-align:center;padding:2rem;";
+        fallback.textContent =
+          "This site requires WebAssembly. Please update your browser or enable WebAssembly support.";
+        document.body.appendChild(fallback);
+      }
+    </script>
+  </body>
+</html>
