@@ -1,0 +1,596 @@
+/* eCelium GIS Website - main stylesheet */
+
+/* ============================================================
+   CSS Custom Properties (Design Tokens)
+   ============================================================ */
+:root {
+  --color-bg: #c0e3ff;          /* light blue-grey background */
+  --color-bg-alt: #f0f4f8;      /* slightly lighter alt background */
+  --color-navy: #1a2a4a;        /* dark navy text */
+  --color-teal: #0f68b8;        /* teal accent */
+  --color-teal-dark: #2676bb;   /* darker teal for hover */
+  --color-accent: #C82909;      /* warm accent (map pin) */
+  --color-white: #ffffff;
+  --color-grey-light: #d0dce8;
+  --color-grey-mid: #8a9bb0;
+  --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --navbar-height: 64px;
+  --section-padding: 4rem 2rem;
+  --border-radius: 8px;
+  --shadow: 0 2px 12px rgba(26, 42, 74, 0.1);
+}
+
+/* ============================================================
+   Global Reset & Base Styles
+   ============================================================ */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-navy);
+  background: var(--color-bg);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   NavBar
+   ============================================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--navbar-height);
+  background: var(--color-white);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 1000;
+}
+
+.navbar-logo {
+  height: 120px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--color-navy);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--color-teal);
+}
+
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-navy);
+}
+
+/* ============================================================
+   HeroSection
+   ============================================================ */
+.hero-section {
+  height: calc(100vh - var(--navbar-height));
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+}
+
+.hero-content {
+  flex: 0 0 40%;
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-headline {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-subtext {
+  font-size: 1.1rem;
+  color: var(--color-grey-mid);
+  margin-bottom: 2rem;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: var(--color-teal);
+  color: var(--color-white);
+  padding: 0.875rem 2rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: background 0.2s;    
+  width: 40%;
+  align-items: center;
+  text-align: center;
+}
+
+.cta-btn:hover {
+  background: var(--color-teal-dark);
+}
+
+.hero-graphic {
+  flex: 0 0 60%;
+  max-width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-graphic img,
+.hero-graphic video {
+  width: 100%;
+  height: 100%;
+  max-height: calc(100vh - var(--navbar-height));
+  object-fit: contain;
+  display: block;
+}
+
+.hero-svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ============================================================
+   Section Common Styles
+   ============================================================ */
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--color-navy);
+}
+
+/* ============================================================
+   ServicesSection  (Task 11.2 — responsive grid)
+   Desktop: 4-col  |  Tablet: 2-col  |  Mobile: 1-col
+   ============================================================ */
+.services-section {
+  padding: var(--section-padding);
+  background: var(--color-white);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.service-card {
+  background: var(--color-bg);
+  border-radius: var(--border-radius);
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.service-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--color-navy);
+}
+
+.service-description {
+  color: #525151;
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.service-subtitle {
+  color: var(--color-grey-mid);
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+  list-style: disc;
+}
+
+.service-description li {
+  margin-bottom: 0.4rem;
+}
+
+.learn-more-link {
+  color: var(--color-teal);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.learn-more-link:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   ProjectsSection  (Task 11.3 — responsive grid)
+   Desktop: 3-col  |  Mobile: 1-col
+   ============================================================ */
+.projects-section {
+  padding: var(--section-padding);
+  background: var(--color-bg-alt);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: var(--color-white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background: var(--color-grey-light);
+}
+
+.project-info {
+  padding: 1.5rem;
+}
+
+.project-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.project-description {
+  color: var(--color-grey-mid);
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   ContactSection  (Task 11.4 — side-by-side → stacked)
+   Desktop: 2-col side-by-side  |  Mobile: 1-col stacked
+   ============================================================ */
+.contact-section {
+  padding: var(--section-padding);
+  background: var(--color-white);
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.form-field label {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-grey-light);
+  border-radius: var(--border-radius);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-navy);
+  background: var(--color-bg);
+}
+
+.form-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.field-error {
+  color: #c0392b;
+  font-size: 0.85rem;
+}
+
+.submit-button {
+  background: var(--color-teal);
+  color: var(--color-white);
+  border: none;
+  padding: 0.875rem 2rem;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: var(--color-teal-dark);
+}
+
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.success-message {
+  background: #d4edda;
+  color: #155724;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+}
+
+.error-banner {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+}
+
+.office-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.office-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-teal);
+}
+
+.office-address,
+.office-phone,
+.office-email {
+  color: var(--color-navy);
+}
+
+.map-thumbnail {
+  width: 100%;
+  border-radius: var(--border-radius);
+  margin-top: 1rem;
+}
+
+.globe-animation { 
+  width: 100%;
+  max-width: 500px; 
+  height: auto;
+  border-radius: 50%; 
+  box-shadow: 0 0 40px rgba(18, 90, 170, 0.2); 
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-footer {
+  background: var(--color-navy);
+  color: var(--color-white);
+  text-align: center;
+  padding: 1.5rem 2rem;
+}
+
+/* Service detail panel — appears below the grid on "Learn More" click */
+.service-detail-panel {
+  width: 100%;
+  min-height: 100px;
+  margin-top: 1.5rem;
+  background: #93bbdb;
+  border: 1px solid var(--color-grey-light);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem 2rem;
+  font-size: 1rem;
+  color: var(--color-navy);
+  box-sizing: border-box;
+}
+
+/* Leaflet office map */
+.office-map {
+  width: 100%;
+  height: 395px;
+  margin-top: 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-grey-light);
+}
+
+/* Project card media row: image with icon overlaid top-left */
+.project-media {
+  position: relative;
+  display: block;
+}
+
+.project-icon {
+  position: absolute;
+  top: 30%;
+  right: 1.1rem;
+  font-size: 3rem;
+  line-height: 1;
+  padding: 0.3rem 0.4rem;
+  z-index: 1;
+}
+
+.project-media .project-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  display: block;
+}
+
+/* Sub-projects list */
+.subproject-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+}
+
+.subproject-item {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--color-grey-light);
+}
+
+.subproject-item:first-child {
+  border-top: none;
+}
+
+.subproject-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-navy);
+}
+
+.subproject-desc {
+  font-size: 0.875rem;
+  color: var(--color-grey-mid);
+  margin-top: 0.2rem;
+}
+
+
+/* ============================================================
+   Responsive Breakpoints
+   ============================================================ */
+
+/* --- Tablet (≤ 1024px): ServicesSection → 2-col --- */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-icon {
+    right: 0.95rem;
+  }
+}
+
+/* --- Mobile (≤ 768px) --- */
+@media (max-width: 768px) {
+  /* NavBar: show hamburger, hide inline links */
+  .hamburger-btn {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: var(--navbar-height);
+    left: 0;
+    right: 0;
+    background: var(--color-white);
+    flex-direction: column;
+    padding: 1rem 2rem;
+    box-shadow: var(--shadow);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  /* HeroSection: full width text, hide graphic */
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .hero-graphic {
+    display: none;
+  }
+
+  /* ServicesSection: 1-col */
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ProjectsSection: 1-col */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ContactSection: stack form + office info */
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-btn{
+    width: 100%;
+  }
+
+  .project-icon {
+    font-size: 2rem;
+    right: 0.8rem;
+  }
+}
